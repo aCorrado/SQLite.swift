@@ -49,19 +49,11 @@ extension Date : Value {
     }
 
     public static func fromDatatypeValue(_ stringValue: String) -> Date {
-                #if os(Linux)
-            return dateFormatter.dateFromString(stringValue)!
-        #else
-            return dateFormatter.date(from: stringValue)!
-        #endif
+        return dateFormatter.date(from: stringValue)!
     }
 
     public var datatypeValue: String {
-        #if os(Linux)
-            return dateFormatter.stringFromDate(self)
-        #else
-    		return dateFormatter.string(from: self)
-        #endif
+    	return dateFormatter.string(from: self)
     }
 
 }
